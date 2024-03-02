@@ -200,7 +200,7 @@ If the value is below the root, we can say for sure that the value is not in the
 
 <h2> code</h2>
 
-<a href="./print level order inorder/print_and_check_bst.exe">Traversal and Check BST or Not ?</a>
+<a href="./print level order inorder/print_and_check_bst.cpp">Traversal and Check BST or Not ?</a>
 
 ```cpp
 #include <bits/stdc++.h>
