@@ -86,87 +86,78 @@ preorder(root->right)
 #include <bits/stdc++.h>
 
 using namespace std;
-class Node{
-    public:
-        int val;
-        Node *left;
-        Node *right;
-        Node(int val)
-        {
-            this->val = val;
-            this->left = NULL;
-            this->right = NULL;
-        }
-};
-//Input
-Node *input_Node()
+class Node
 {
+public:
     int val;
-    cin >> val;
-    Node *root;
-    if(val == -1) root = NULL;
-    else root = new Node(val);
-
-    queue <Node *> q;
-    if(root) q.push(root);
-    while(!q.empty())
+    Node *left;
+    Node *right;
+    Node(int val)
     {
-        Node *p = q.front();
-        q.pop();
-        //Kaj Jeta amora korbo
-        int l, r;
-        cin >> l >> r;
-        Node *my_Left;
-        Node *my_Right;
-        if(l == -1) my_Left = NULL;
-        else my_Left = new Node(l);
-        if(r == -1) my_Right = NULL;
-        else my_Right = new Node(r);
-
-        // Cannection
-        p->left = my_Left;
-        p->right = my_Right;
-
-        //Chield PUSH
-        if(p->left) q.push(p->left);
-        if(p->right) q.push(p->right);
+        this->val = val;
+        this->left = NULL;
+        this->right = NULL;
     }
+};
+Node *convert(vector<int> v, int n, int l, int r)
+{
+    if (l > r)
+        return NULL;
+    int mid = (l + r) / 2;
+    Node *root = new Node(v[mid]);
+    Node *left_Root = convert(v, n, l, mid - 1);
+    Node *right_Root = convert(v, n, mid + 1, r);
+    root->left = left_Root;
+    root->right = right_Root;
     return root;
 }
-//in order
+// in order
 void in_Order(Node *root)
 {
-    if (root == NULL) return;
+    if (root == NULL)
+        return;
     in_Order(root->left);
     cout << root->val << " ";
     in_Order(root->right);
 }
-//pre Oreder
+// pre Oreder
 void pre_order(Node *root)
 {
-    if(root == NULL) return;
+    if (root == NULL)
+        return;
     cout << root->val << " ";
     pre_order(root->left);
     pre_order(root->right);
 }
-//Post Order
+// Post Order
 void post_Order(Node *root)
 {
-    if(root == NULL) return;
+    if (root == NULL)
+        return;
     post_Order(root->left);
     post_Order(root->right);
     cout << root->val << " ";
 }
 int main()
 {
-    //Md. Nazmus Sakib
+    // Md. Nazmus Sakib
     /* Enter your code here. Read input from STDIN. Print output to STDOUT */
-    Node *root = input_Node();
+    vector<int> v;
+    int data;
+
+    while (cin >> data)
+    {
+        v.emplace_back(data);
+    }
+    sort(v.begin(), v.end());
+    Node *root = convert(v, v.size(), 0, v.size() - 1);
     cout << "print Pre_Order: " << endl;
     pre_order(root);
-    cout << endl << "Print In_Order: " << endl;
+    cout << endl
+         << "Print In_Order: " << endl;
     in_Order(root);
-    cout << endl << "Print Post_Order: " << endl;
+    cout << endl
+         << "Print Post_Order: " << endl;
     post_Order(root);
     return 0;
 }
@@ -206,128 +197,117 @@ If the value is below the root, we can say for sure that the value is not in the
 #include <bits/stdc++.h>
 
 using namespace std;
-class Node{
-    public:
-        int val;
-        Node *left;
-        Node *right;
-        Node(int val)
-        {
-            this->val = val;
-            this->left = NULL;
-            this->right = NULL;
-        }
-};
-//Input
-Node *input_Node()
+class Node
 {
+public:
     int val;
-    cin >> val;
-    Node *root;
-    if(val == -1) root = NULL;
-    else root = new Node(val);
-
-    queue <Node *> q;
-    if(root) q.push(root);
-    while(!q.empty())
+    Node *left;
+    Node *right;
+    Node(int val)
     {
-        Node *p = q.front();
-        q.pop();
-        //Kaj Jeta amora korbo
-        int l, r;
-        cin >> l >> r;
-        Node *my_Left;
-        Node *my_Right;
-        if(l == -1) my_Left = NULL;
-        else my_Left = new Node(l);
-        if(r == -1) my_Right = NULL;
-        else my_Right = new Node(r);
-
-        // Cannection
-        p->left = my_Left;
-        p->right = my_Right;
-
-        //Chield PUSH
-        if(p->left) q.push(p->left);
-        if(p->right) q.push(p->right);
+        this->val = val;
+        this->left = NULL;
+        this->right = NULL;
     }
+};
+vector<int>vv;
+Node *convert(vector<int> v, int n, int l, int r)
+{
+    if (l > r)
+        return NULL;
+    int mid = (l + r) / 2;
+    Node *root = new Node(v[mid]);
+    Node *left_Root = convert(v, n, l, mid - 1);
+    Node *right_Root = convert(v, n, mid + 1, r);
+    root->left = left_Root;
+    root->right = right_Root;
     return root;
 }
-//in order
+// in order
 void in_Order(Node *root)
 {
-    if (root == NULL) return;
+    if (root == NULL)
+        return;
     in_Order(root->left);
     cout << root->val << " ";
+    vv.emplace_back(root->val);
     in_Order(root->right);
 }
-//pre Oreder
+// pre Oreder
 void pre_order(Node *root)
 {
-    if(root == NULL) return;
+    if (root == NULL)
+        return;
     cout << root->val << " ";
     pre_order(root->left);
     pre_order(root->right);
 }
-//Post Order
+// Post Order
 void post_Order(Node *root)
 {
-    if(root == NULL) return;
+    if (root == NULL)
+        return;
     post_Order(root->left);
     post_Order(root->right);
     cout << root->val << " ";
 }
 // Check if the tree is a binary search tree (BST)
-bool is_BST_Util(Node *root, int &prev) {
-    if (root == NULL)
-        return true;
-
-    if (!is_BST_Util(root->left, prev))
-        return false;
-
-    if (root->val <= prev)
-        return false;
-
-    prev = root->val;
-
-    return is_BST_Util(root->right, prev);
-}
-//Check BST is or Not
-bool is_BST(Node *root) {
-    int prev = INT_MIN;
-    return is_BST_Util(root, prev);
+// Check BST is or Not
+bool is_BST(Node *root)
+{
+    for(int i = 0; i < vv.size(); i++)
+    {
+        for(int j = i + 1; j < vv.size()-1; j++)
+        {
+            if(vv[i] > vv[j]) return false;
+        }
+    }
+    return true;
 }
 int main()
 {
-    //Md. Nazmus Sakib
+    // Md. Nazmus Sakib
     /* Enter your code here. Read input from STDIN. Print output to STDOUT */
-    Node *root = input_Node();
+    vector<int> v;
+    int data;
+
+    while (cin >> data)
+    {
+        v.emplace_back(data);
+    }
+    //sort(v.begin(), v.end());
+    Node *root = convert(v, v.size(), 0, v.size() - 1);
     cout << "print Pre_Order: " << endl;
     pre_order(root);
-    cout << endl << "Print In_Order: " << endl;
+    cout << endl
+         << "Print In_Order: " << endl;
     in_Order(root);
-    cout << endl << "Print Post_Order: " << endl;
+    cout << endl
+         << "Print Post_Order: " << endl;
     post_Order(root);
-    cout << endl;
-    if(!is_BST(root)) cout << "\nThis is a Binary Tree" << endl;
-    else cout << "\nThis is not a Binary Tree" << endl;
+
+    if (is_BST(root))
+        cout << endl << endl
+             << "This is a Binary Search Tree" << endl;
+    else
+        cout << endl << endl
+             << "This is not a Binary Search Tree" << endl;
     return 0;
 }
 ```
+
 <h2>Binary Search Tree Complexities</h2>
 <img src="./print level order inorder/pic/Capture.PNG">
-
-
 
 | Name             | Link                          |
 | ---------------- | ----------------------------- |
 | Md. Nazmus Sakib | BSc In Engr.                  |
 | Email            | engrsakib02@gmail.com         |
-| LinkedIn       | [LinkedIn][linked_in_link] |
+| LinkedIn         | [LinkedIn][linked_in_link]    |
 | Facebook         | [Facebook][facebook_link]     |
 | Code Force       | [Code Force][Code_force_link] |
 | CodeChef         | [CodeChef][CodeChef_link]     |
-| LeetCode      | [Code Force][LeetCode_link] |
+| LeetCode         | [Code Force][LeetCode_link]   |
 
 [linked_in_link]: https://www.linkedin.com/in/engrsakib/
 [facebook_link]: https://www.facebook.com/engrsakib02/
