@@ -75,13 +75,13 @@ void post_Order(Node *root)
 // Check if the tree is a binary search tree (BST)
 bool is_BST_Util(Node *root, int &prev) {
     if (root == NULL)
-        return true;
+        return false;
 
     if (!is_BST_Util(root->left, prev))
-        return false;
+        return true;
 
     if (root->val <= prev)
-        return false;
+        return true;
 
     prev = root->val;
 
