@@ -323,8 +323,14 @@ int main()
 | ---------------- | ----------------------------- |
 | Md. Nazmus Sakib | BSc In Engr.                  |
 | Email            | engrsakib02@gmail.com         |
+| LinkedIn       | [LinkedIn][linked_in_link] |
 | Facebook         | [Facebook][facebook_link]     |
 | Code Force       | [Code Force][Code_force_link] |
+| CodeChef         | [CodeChef][CodeChef_link]     |
+| LeetCode      | [Code Force][LeetCode_link] |
 
+[linked_in_link]: https://www.linkedin.com/in/engrsakib/
 [facebook_link]: https://www.facebook.com/engrsakib02/
 [code_force_link]: https://codeforces.com/profile/engrsakib
+[LeetCode_link]: https://leetcode.com/engrsakib/
+[CodeChef_link]: https://www.codechef.com/users/engrsakib
