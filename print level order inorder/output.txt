@@ -1,0 +1,8 @@
+print Pre_Order: 
+11 6 19 17 43 4 79 31 8 10 5 
+Print In_Order: 
+17 19 43 6 79 4 31 11 10 8 5 
+Print Post_Order: 
+17 43 19 79 31 4 6 10 5 8 11 
+
+This is a Binary Tree
